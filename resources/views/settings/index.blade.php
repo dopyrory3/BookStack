@@ -92,6 +92,21 @@
                             ])
                         </div>
                     </div>
+                    
+                    <div class="grid half gap-xl">
+                        <div>
+                            <label for="setting-app-banner" class="setting-list-label">{{ trans('settings.app_banner') }}</label>
+                            <p class="small">{{ trans('settings.app_banner_desc') }}</p>
+                        </div>
+                        <div class="pt-xs">
+                            <input type="text" value="{{ setting('app-banner', '') }}" name="setting-app-banner" id="setting-app-banner">
+                            @include('components.toggle-switch', [
+                                'name' => 'setting-app-banner-header',
+                                'value' => setting('app-banner-header'),
+                                'label' => trans('Enable the announcement banner'),
+                            ])
+                        </div>
+                    </div>
 
                     <div class="grid half gap-xl">
                         <div>

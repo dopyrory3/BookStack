@@ -45,6 +45,8 @@ return [
     'app_disable_comments' => 'Disable Comments',
     'app_disable_comments_toggle' => 'Disable comments',
     'app_disable_comments_desc' => 'Disables comments across all pages in the application. <br> Existing comments are not shown.',
+    'app_banner' => 'Announcement Banner',
+    'app_banner_desc' => 'This message is shown beneath the header to all visitors',
 
     // Color settings
     'content_colors' => 'Content Colors',

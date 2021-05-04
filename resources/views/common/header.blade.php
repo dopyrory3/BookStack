@@ -86,3 +86,10 @@
 
     </div>
 </header>
+@if (setting('app-banner-header'))
+    <div class="header banner primary-background">
+        <div class="grid mx-l">
+            <span class="logo-text">@icon('warning') {{ setting('app-banner') }}</span>
+        </div>
+    </div>
+@endif
