@@ -1,5 +1,11 @@
-<?php namespace Tests;
+<?php
 
+namespace Tests;
+
+use BookStack\Auth\Permissions\PermissionService;
+use BookStack\Auth\Permissions\PermissionsRepo;
+use BookStack\Auth\Permissions\RolePermission;
+use BookStack\Auth\Role;
 use BookStack\Auth\User;
 use BookStack\Entities\Models\Book;
 use BookStack\Entities\Models\Bookshelf;
@@ -9,22 +15,24 @@ use BookStack\Entities\Models\Page;
 use BookStack\Entities\Repos\BookRepo;
 use BookStack\Entities\Repos\BookshelfRepo;
 use BookStack\Entities\Repos\ChapterRepo;
-use BookStack\Auth\Permissions\PermissionsRepo;
-use BookStack\Auth\Role;
-use BookStack\Auth\Permissions\PermissionService;
 use BookStack\Entities\Repos\PageRepo;
 use BookStack\Settings\SettingService;
 use BookStack\Uploads\HttpFetcher;
+use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Env;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Testing\Assert as PHPUnit;
 use Mockery;
 use Monolog\Handler\TestHandler;
 use Monolog\Logger;
-use Illuminate\Foundation\Testing\Assert as PHPUnit;
+use Psr\Http\Client\ClientInterface;
 
 trait SharedTestHelpers
 {
-
     protected $admin;
     protected $editor;
 
@@ -57,7 +65,6 @@ trait SharedTestHelpers
         return $this->actingAs($this->getEditor());
     }
 
-
     /**
      * Get a editor user.
      */
@@ -67,6 +74,7 @@ trait SharedTestHelpers
             $editorRole = Role::getRole('editor');
             $this->editor = $editorRole->users->first();
         }
+
         return $this->editor;
     }
 
@@ -79,7 +87,16 @@ trait SharedTestHelpers
         if (!empty($attributes)) {
             $user->forceFill($attributes)->save();
         }
+
         return $user;
+    }
+
+    /**
+     * Get a user that's not a system user such as the guest user.
+     */
+    public function getNormalUser(): User
+    {
+        return User::query()->where('system_name', '=', null)->get()->last();
     }
 
     /**
@@ -108,21 +125,22 @@ trait SharedTestHelpers
     }
 
     /**
-     * Create and return a new test chapter
+     * Create and return a new test chapter.
      */
-    public function newChapter(array $input = ['name' => 'test chapter', 'description' => 'My new test chapter'], Book $book): Chapter
+    public function newChapter(array $input, Book $book): Chapter
     {
         return app(ChapterRepo::class)->create($input, $book);
     }
 
     /**
-     * Create and return a new test page
+     * Create and return a new test page.
      */
     public function newPage(array $input = ['name' => 'test page', 'html' => 'My new test page']): Page
     {
         $book = Book::query()->first();
         $pageRepo = app(PageRepo::class);
         $draftPage = $pageRepo->getNewDraftPage($book);
+
         return $pageRepo->publishDraft($draftPage, $input);
     }
 
@@ -150,7 +168,7 @@ trait SharedTestHelpers
             foreach ($roles as $role) {
                 $permissions[] = [
                     'role_id' => $role->id,
-                    'action' => strtolower($action)
+                    'action'  => strtolower($action),
                 ];
             }
         }
@@ -174,14 +192,49 @@ trait SharedTestHelpers
     }
 
     /**
+     * Completely remove the given permission name from the given user.
+     */
+    protected function removePermissionFromUser(User $user, string $permission)
+    {
+        $permission = RolePermission::query()->where('name', '=', $permission)->first();
+        /** @var Role $role */
+        foreach ($user->roles as $role) {
+            $role->detachPermission($permission);
+        }
+        $user->clearPermissionCache();
+    }
+
+    /**
      * Create a new basic role for testing purposes.
      */
     protected function createNewRole(array $permissions = []): Role
     {
         $permissionRepo = app(PermissionsRepo::class);
-        $roleData = factory(Role::class)->make()->toArray();
+        $roleData = Role::factory()->make()->toArray();
         $roleData['permissions'] = array_flip($permissions);
+
         return $permissionRepo->saveNewRole($roleData);
+    }
+
+    /**
+     * Create a group of entities that belong to a specific user.
+     *
+     * @return array{book: Book, chapter: Chapter, page: Page}
+     */
+    protected function createEntityChainBelongingToUser(User $creatorUser, ?User $updaterUser = null): array
+    {
+        if (empty($updaterUser)) {
+            $updaterUser = $creatorUser;
+        }
+
+        $userAttrs = ['created_by' => $creatorUser->id, 'owned_by' => $creatorUser->id, 'updated_by' => $updaterUser->id];
+        $book = Book::factory()->create($userAttrs);
+        $chapter = Chapter::factory()->create(array_merge(['book_id' => $book->id], $userAttrs));
+        $page = Page::factory()->create(array_merge(['book_id' => $book->id, 'chapter_id' => $chapter->id], $userAttrs));
+        $restrictionService = $this->app[PermissionService::class];
+        $restrictionService->buildJointPermissionsForEntity($book);
+
+        return compact('book', 'chapter', 'page');
     }
 
     /**
@@ -194,6 +247,24 @@ trait SharedTestHelpers
         $mockHttp->shouldReceive('fetch')
             ->times($times)
             ->andReturn($returnData);
+    }
+
+    /**
+     * Mock the http client used in BookStack.
+     * Returns a reference to the container which holds all history of http transactions.
+     *
+     * @link https://docs.guzzlephp.org/en/stable/testing.html#history-middleware
+     */
+    protected function &mockHttpClient(array $responses = []): array
+    {
+        $container = [];
+        $history = Middleware::history($container);
+        $mock = new MockHandler($responses);
+        $handlerStack = new HandlerStack($mock);
+        $handlerStack->push($history);
+        $this->app[ClientInterface::class] = new Client(['handler' => $handlerStack]);
+
+        return $container;
     }
 
     /**
@@ -245,7 +316,7 @@ trait SharedTestHelpers
      */
     protected function assertPermissionError($response)
     {
-        PHPUnit::assertTrue($this->isPermissionError($response->baseResponse ?? $response->response), "Failed asserting the response contains a permission error.");
+        PHPUnit::assertTrue($this->isPermissionError($response->baseResponse ?? $response->response), 'Failed asserting the response contains a permission error.');
     }
 
     /**
@@ -253,7 +324,7 @@ trait SharedTestHelpers
      */
     protected function assertNotPermissionError($response)
     {
-        PHPUnit::assertFalse($this->isPermissionError($response->baseResponse ?? $response->response), "Failed asserting the response does not contain a permission error.");
+        PHPUnit::assertFalse($this->isPermissionError($response->baseResponse ?? $response->response), 'Failed asserting the response does not contain a permission error.');
     }
 
     /**
@@ -262,8 +333,26 @@ trait SharedTestHelpers
     private function isPermissionError($response): bool
     {
         return $response->status() === 302
-            && $response->headers->get('Location') === url('/')
-            && strpos(session()->pull('error', ''), 'You do not have permission to access') === 0;
+            && (
+                (
+                    $response->headers->get('Location') === url('/')
+                    && strpos(session()->pull('error', ''), 'You do not have permission to access') === 0
+                )
+                ||
+                (
+                    $response instanceof JsonResponse &&
+                    $response->json(['error' => 'You do not have permission to perform the requested action.'])
+                )
+            );
+    }
+
+    /**
+     * Assert that the session has a particular error notification message set.
+     */
+    protected function assertSessionError(string $message)
+    {
+        $error = session()->get('error');
+        PHPUnit::assertTrue($error === $message, "Failed asserting the session contains an error. \nFound: {$error}\nExpecting: {$message}");
     }
 
     /**
@@ -283,5 +372,4 @@ trait SharedTestHelpers
 
         return $testHandler;
     }
-
 }

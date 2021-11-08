@@ -27,6 +27,8 @@ return [
     'images' => 'Imagens',
     'my_recent_drafts' => 'Meus Rascunhos Recentes',
     'my_recently_viewed' => 'Visualizados por mim Recentemente',
+    'my_most_viewed_favourites' => 'My Most Viewed Favourites',
+    'my_favourites' => 'My Favourites',
     'no_pages_viewed' => 'Você não visualizou nenhuma página',
     'no_pages_recently_created' => 'Nenhuma página criada recentemente',
     'no_pages_recently_updated' => 'Nenhuma página atualizada recentemente',
@@ -34,6 +36,7 @@ return [
     'export_html' => 'Arquivo Web Contained',
     'export_pdf' => 'Arquivo PDF',
     'export_text' => 'Arquivo Texto',
+    'export_md' => 'Markdown File',
 
     // Permissions and restrictions
     'permissions' => 'Permissões',
@@ -96,6 +99,7 @@ return [
     'shelves_permissions' => 'Permissões da Prateleira',
     'shelves_permissions_updated' => 'Permissões da Prateleira Atualizadas',
     'shelves_permissions_active' => 'Permissões da Prateleira Ativas',
+    'shelves_permissions_cascade_warning' => 'Permissions on bookshelves do not automatically cascade to contained books. This is because a book can exist on multiple shelves. Permissions can however be copied down to child books using the option found below.',
     'shelves_copy_permissions_to_books' => 'Copiar Permissões para Livros',
     'shelves_copy_permissions' => 'Copiar Permissões',
     'shelves_copy_permissions_explain' => 'Isto aplicará as configurações de permissões atuais desta prateleira a todos os livros contidos nela. Antes de ativar, assegure-se de que quaisquer alterações nas permissões desta prateleira tenham sido salvas.',
@@ -230,6 +234,7 @@ return [
     'pages_initial_name' => 'Nova Página',
     'pages_editing_draft_notification' => 'Você está atualmente editando um rascunho que foi salvo da última vez em :timeDiff.',
     'pages_draft_edited_notification' => 'Essa página foi atualizada desde então. É recomendado que você descarte esse rascunho.',
+    'pages_draft_page_changed_since_creation' => 'This page has been updated since this draft was created. It is recommended that you discard this draft or take care not to overwrite any page changes.',
     'pages_draft_edit_active' => [
         'start_a' => ':count usuários iniciaram a edição dessa página',
         'start_b' => ':userName iniciou a edição dessa página',
@@ -316,5 +321,5 @@ return [
     'revision_delete_confirm' => 'Tem certeza de que deseja excluir esta revisão?',
     'revision_restore_confirm' => 'Tem certeza que deseja restaurar esta revisão? O conteúdo atual da página será substituído.',
     'revision_delete_success' => 'Revisão excluída',
-    'revision_cannot_delete_latest' => 'Não é possível excluir a revisão mais recente.'
+    'revision_cannot_delete_latest' => 'Não é possível excluir a revisão mais recente.',
 ];

@@ -34,16 +34,18 @@ class ForgotPasswordController extends Controller
         $this->middleware('guard:standard');
     }
 
-
     /**
      * Send a reset link to the given user.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function sendResetLinkEmail(Request $request)
     {
-        $this->validate($request, ['email' => 'required|email']);
+        $this->validate($request, [
+            'email' => ['required', 'email'],
+        ]);
 
         // We will send the password reset link to this user. Once we have attempted
         // to send the link, we will examine the response then see the message we
@@ -56,9 +58,10 @@ class ForgotPasswordController extends Controller
             $this->logActivity(ActivityType::AUTH_PASSWORD_RESET, $request->get('email'));
         }
 
-        if ($response === Password::RESET_LINK_SENT || $response === Password::INVALID_USER) {
+        if (in_array($response, [Password::RESET_LINK_SENT, Password::INVALID_USER, Password::RESET_THROTTLED])) {
             $message = trans('auth.reset_password_sent', ['email' => $request->get('email')]);
             $this->showSuccessNotification($message);
+
             return back()->with('status', trans($response));
         }
 

@@ -1,4 +1,6 @@
-<?php namespace BookStack\Entities\Tools;
+<?php
+
+namespace BookStack\Entities\Tools;
 
 use BookStack\Entities\Models\Page;
 use BookStack\Entities\Models\PageRevision;
@@ -7,7 +9,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 class PageEditActivity
 {
-
     protected $page;
 
     /**
@@ -20,7 +21,6 @@ class PageEditActivity
 
     /**
      * Check if there's active editing being performed on this page.
-     * @return bool
      */
     public function hasActiveEditing(): bool
     {
@@ -35,15 +35,50 @@ class PageEditActivity
         $pageDraftEdits = $this->activePageEditingQuery(60)->get();
         $count = $pageDraftEdits->count();
 
-        $userMessage = $count > 1 ? trans('entities.pages_draft_edit_active.start_a', ['count' => $count]): trans('entities.pages_draft_edit_active.start_b', ['userName' => $pageDraftEdits->first()->createdBy->name]);
+        $userMessage = trans('entities.pages_draft_edit_active.start_a', ['count' => $count]);
+        if ($count === 1) {
+            /** @var PageRevision $firstDraft */
+            $firstDraft = $pageDraftEdits->first();
+            $userMessage = trans('entities.pages_draft_edit_active.start_b', ['userName' => $firstDraft->createdBy->name ?? '']);
+        }
+
         $timeMessage = trans('entities.pages_draft_edit_active.time_b', ['minCount'=> 60]);
+
         return trans('entities.pages_draft_edit_active.message', ['start' => $userMessage, 'time' => $timeMessage]);
     }
 
     /**
+     * Get any editor clash warning messages to show for the given draft revision.
+     *
+     * @param PageRevision|Page $draft
+     *
+     * @return string[]
+     */
+    public function getWarningMessagesForDraft($draft): array
+    {
+        $warnings = [];
+
+        if ($this->hasActiveEditing()) {
+            $warnings[] = $this->activeEditingMessage();
+        }
+
+        if ($draft instanceof PageRevision && $this->hasPageBeenUpdatedSinceDraftCreated($draft)) {
+            $warnings[] = trans('entities.pages_draft_page_changed_since_creation');
+        }
+
+        return $warnings;
+    }
+
+    /**
+     * Check if the page has been updated since the draft has been saved.
+     */
+    protected function hasPageBeenUpdatedSinceDraftCreated(PageRevision $draft): bool
+    {
+        return $draft->page->updated_at->timestamp > $draft->created_at->timestamp;
+    }
+
+    /**
      * Get the message to show when the user will be editing one of their drafts.
-     * @param PageRevision $draft
-     * @return string
      */
     public function getEditingActiveDraftMessage(PageRevision $draft): string
     {
@@ -51,6 +86,7 @@ class PageEditActivity
         if ($draft->page->updated_at->timestamp <= $draft->updated_at->timestamp) {
             return $message;
         }
+
         return $message . "\n" . trans('entities.pages_draft_edited_notification');
     }
 

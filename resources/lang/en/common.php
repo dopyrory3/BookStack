@@ -20,7 +20,7 @@ return [
     'role' => 'Role',
     'cover_image' => 'Cover image',
     'cover_image_description' => 'This image should be approx 440x250px.',
-    
+
     // Actions
     'actions' => 'Actions',
     'view' => 'View',
@@ -39,7 +39,14 @@ return [
     'reset' => 'Reset',
     'remove' => 'Remove',
     'add' => 'Add',
+    'configure' => 'Configure',
     'fullscreen' => 'Fullscreen',
+    'favourite' => 'Favourite',
+    'unfavourite' => 'Unfavourite',
+    'next' => 'Next',
+    'previous' => 'Previous',
+    'filter_active' => 'Active Filter:',
+    'filter_clear' => 'Clear Filter',
 
     // Sort Options
     'sort_options' => 'Sort Options',
@@ -56,6 +63,7 @@ return [
     'no_activity' => 'No activity to show',
     'no_items' => 'No items available',
     'back_to_top' => 'Back to top',
+    'skip_to_main_content' => 'Skip to main content',
     'toggle_details' => 'Toggle Details',
     'toggle_thumbnails' => 'Toggle Thumbnails',
     'details' => 'Details',

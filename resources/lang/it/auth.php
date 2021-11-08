@@ -38,7 +38,6 @@ return [
     'registration_email_domain_invalid' => 'Questo dominio della mail non ha accesso a questa applicazione',
     'register_success' => 'Grazie per la registrazione! Sei registrato e loggato.',
 
-
     // Password Reset
     'reset_password' => 'Reimposta Password',
     'reset_password_send_instructions' => 'Inserisci il tuo indirizzo sotto e ti verrà inviata una mail contenente un link per resettare la tua password.',
@@ -48,7 +47,6 @@ return [
     'email_reset_subject' => 'Reimposta la password di :appName',
     'email_reset_text' => 'Stai ricevendo questa mail perché abbiamo ricevuto una richiesta di reset della password per il tuo account.',
     'email_reset_not_requested' => 'Se non hai richiesto un reset della password, ignora questa mail.',
-
 
     // Email Confirmation
     'email_confirm_subject' => 'Conferma email per :appName',
@@ -73,5 +71,40 @@ return [
     'user_invite_page_welcome' => 'Benvenuto in :appName!',
     'user_invite_page_text' => 'Per completare il tuo account e ottenere l\'accesso devi impostare una password che verrà utilizzata per accedere a :appName in futuro.',
     'user_invite_page_confirm_button' => 'Conferma Password',
-    'user_invite_success' => 'Password impostata, ora hai accesso a :appName!'
+    'user_invite_success' => 'Password impostata, ora hai accesso a :appName!',
+
+    // Multi-factor Authentication
+    'mfa_setup' => 'Imposta Autenticazione Multi-Fattore',
+    'mfa_setup_desc' => 'Imposta l\'autenticazione multi-fattore come misura di sicurezza aggiuntiva per il tuo account.',
+    'mfa_setup_configured' => 'Già configurata',
+    'mfa_setup_reconfigure' => 'Riconfigura',
+    'mfa_setup_remove_confirmation' => 'Sei sicuro di voler rimuovere questo metodo di autenticazione multi-fattore?',
+    'mfa_setup_action' => 'Imposta',
+    'mfa_backup_codes_usage_limit_warning' => 'Hai meno di 5 codici di backup rimanenti. Genera e memorizza un nuovo set prima di esaurire i codici per evitare di essere bloccato dal tuo account.',
+    'mfa_option_totp_title' => 'App mobile',
+    'mfa_option_totp_desc' => 'Per utilizzare l\'autenticazione multi-fattore avrai bisogno di un\'applicazione mobile che supporti TOTP come Google Authenticator, Authy o Microsoft Authenticator.',
+    'mfa_option_backup_codes_title' => 'Codici di backup',
+    'mfa_option_backup_codes_desc' => 'Salva in modo sicuro una serie di codici di backup monouso che puoi inserire per verificare la tua identità.',
+    'mfa_gen_confirm_and_enable' => 'Conferma e abilita',
+    'mfa_gen_backup_codes_title' => 'Configurazione codici di backup',
+    'mfa_gen_backup_codes_desc' => 'Conserva l\'elenco di codici qui sotto in un luogo sicuro. Quando accedi al sistema potrai utilizzare uno dei codici come meccanismo di autenticazione secondario.',
+    'mfa_gen_backup_codes_download' => 'Scarica codici',
+    'mfa_gen_backup_codes_usage_warning' => 'Ogni codice può essere utilizzato solo una volta',
+    'mfa_gen_totp_title' => 'Impostazione App Mobile',
+    'mfa_gen_totp_desc' => 'Per utilizzare l\'autenticazione multi-fattore avrai bisogno di un\'applicazione mobile che supporti TOTP come Google Authenticator, Authy o Microsoft Authenticator.',
+    'mfa_gen_totp_scan' => 'Scansiona il codice QR qui sotto utilizzando la tua app di autenticazione preferita per iniziare.',
+    'mfa_gen_totp_verify_setup' => 'Verifica configurazione',
+    'mfa_gen_totp_verify_setup_desc' => 'Verifica che tutto funzioni inserendo un codice, generato all\'interno della tua app di autenticazione, nella casella di testo sottostante:',
+    'mfa_gen_totp_provide_code_here' => 'Inserisci qui il codice generato dall\'app',
+    'mfa_verify_access' => 'Verifica accesso',
+    'mfa_verify_access_desc' => 'Il tuo account utente richiede che tu confermi la tua identità tramite un ulteriore livello di verifica prima di ottenere l\'accesso. Verifica usando uno dei tuoi metodi configurati per continuare.',
+    'mfa_verify_no_methods' => 'Nessun metodo configurato',
+    'mfa_verify_no_methods_desc' => 'Non è stato possibile trovare metodi di autenticazione multi-fattore per il tuo account. Devi impostare almeno un metodo prima di ottenere l\'accesso.',
+    'mfa_verify_use_totp' => 'Verifica utilizzando un\'app mobile',
+    'mfa_verify_use_backup_codes' => 'Verifica utilizzando un codice di backup',
+    'mfa_verify_backup_code' => 'Codice di backup',
+    'mfa_verify_backup_code_desc' => 'Inserisci uno dei tuoi rimanenti codici di backup qui sotto:',
+    'mfa_verify_backup_code_enter_here' => 'Inserisci qui il codice di backup',
+    'mfa_verify_totp_desc' => 'Inserisci il codice, generato tramite la tua app mobile, qui sotto:',
+    'mfa_setup_login_notification' => 'Metodo multi-fattore configurato, si prega di effettuare nuovamente il login utilizzando il metodo configurato.',
 ];

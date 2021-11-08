@@ -4,8 +4,8 @@ namespace BookStack\Http\Controllers;
 
 use BookStack\Facades\Activity;
 use BookStack\Interfaces\Loggable;
-use BookStack\HasCreatorAndUpdater;
 use BookStack\Model;
+use BookStack\Util\WebSafeMimeSniffer;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -15,7 +15,8 @@ use Illuminate\Routing\Controller as BaseController;
 
 abstract class Controller extends BaseController
 {
-    use DispatchesJobs, ValidatesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 
     /**
      * Check if the current user is signed in.
@@ -105,7 +106,7 @@ abstract class Controller extends BaseController
     /**
      * Send back a json error message.
      */
-    protected function jsonError(string $messageText = "", int $statusCode = 500): JsonResponse
+    protected function jsonError(string $messageText = '', int $statusCode = 500): JsonResponse
     {
         return response()->json(['message' => $messageText, 'status' => 'error'], $statusCode);
     }
@@ -116,8 +117,24 @@ abstract class Controller extends BaseController
     protected function downloadResponse(string $content, string $fileName): Response
     {
         return response()->make($content, 200, [
-            'Content-Type'        => 'application/octet-stream',
-            'Content-Disposition' => 'attachment; filename="' . $fileName . '"'
+            'Content-Type'           => 'application/octet-stream',
+            'Content-Disposition'    => 'attachment; filename="' . $fileName . '"',
+            'X-Content-Type-Options' => 'nosniff',
+        ]);
+    }
+
+    /**
+     * Create a file download response that provides the file with a content-type
+     * correct for the file, in a way so the browser can show the content in browser.
+     */
+    protected function inlineDownloadResponse(string $content, string $fileName): Response
+    {
+        $mime = (new WebSafeMimeSniffer())->sniff($content);
+
+        return response()->make($content, 200, [
+            'Content-Type'           => $mime,
+            'Content-Disposition'    => 'inline; filename="' . $fileName . '"',
+            'X-Content-Type-Options' => 'nosniff',
         ]);
     }
 
@@ -147,7 +164,8 @@ abstract class Controller extends BaseController
 
     /**
      * Log an activity in the system.
-     * @param string|Loggable
+     *
+     * @param $detail string|Loggable
      */
     protected function logActivity(string $type, $detail = ''): void
     {
@@ -157,8 +175,8 @@ abstract class Controller extends BaseController
     /**
      * Get the validation rules for image files.
      */
-    protected function getImageValidationRules(): string
+    protected function getImageValidationRules(): array
     {
-        return 'image_extension|mimes:jpeg,png,gif,webp';
+        return ['image_extension', 'mimes:jpeg,png,gif,webp'];
     }
 }

@@ -20,7 +20,7 @@ return [
     'role' => 'Роля',
     'cover_image' => 'Основно изображение',
     'cover_image_description' => 'Картината трябва да е приблизително 440х250 пиксела.',
-    
+
     // Actions
     'actions' => 'Действия',
     'view' => 'Преглед',
@@ -33,13 +33,18 @@ return [
     'copy' => 'Копирай',
     'reply' => 'Отговори',
     'delete' => 'Изтрий',
-    'delete_confirm' => 'Confirm Deletion',
+    'delete_confirm' => 'Потвърдете изтриването',
     'search' => 'Търси',
     'search_clear' => 'Изчисти търсенето',
     'reset' => 'Нулирай',
     'remove' => 'Премахване',
     'add' => 'Добави',
+    'configure' => 'Configure',
     'fullscreen' => 'Пълен екран',
+    'favourite' => 'Favourite',
+    'unfavourite' => 'Unfavourite',
+    'next' => 'Next',
+    'previous' => 'Previous',
 
     // Sort Options
     'sort_options' => 'Опции за сортиране',
@@ -56,6 +61,7 @@ return [
     'no_activity' => 'Няма активност за показване',
     'no_items' => 'Няма налични артикули',
     'back_to_top' => 'Върнете се в началото',
+    'skip_to_main_content' => 'Skip to main content',
     'toggle_details' => 'Активирай детайли',
     'toggle_thumbnails' => 'Активирай миниатюри',
     'details' => 'Подробности',
@@ -84,6 +90,6 @@ return [
 
     // Footer Link Options
     // Not directly used but available for convenience to users.
-    'privacy_policy' => 'Privacy Policy',
-    'terms_of_service' => 'Terms of Service',
+    'privacy_policy' => 'Лични данни',
+    'terms_of_service' => 'Общи условия',
 ];

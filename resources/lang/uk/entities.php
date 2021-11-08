@@ -27,6 +27,8 @@ return [
     'images' => 'Зображення',
     'my_recent_drafts' => 'Мої останні чернетки',
     'my_recently_viewed' => 'Мої недавні перегляди',
+    'my_most_viewed_favourites' => 'My Most Viewed Favourites',
+    'my_favourites' => 'My Favourites',
     'no_pages_viewed' => 'Ви не переглядали жодної сторінки',
     'no_pages_recently_created' => 'Не було створено жодної сторінки',
     'no_pages_recently_updated' => 'Немає недавно оновлених сторінок',
@@ -34,6 +36,7 @@ return [
     'export_html' => 'Вбудований веб-файл',
     'export_pdf' => 'PDF файл',
     'export_text' => 'Текстовий файл',
+    'export_md' => 'Markdown File',
 
     // Permissions and restrictions
     'permissions' => 'Дозволи',
@@ -96,6 +99,7 @@ return [
     'shelves_permissions' => 'Дозволи на книжкову полицю',
     'shelves_permissions_updated' => 'Дозволи на книжкову полицю оновлено',
     'shelves_permissions_active' => 'Діючі дозволи на книжкову полицю',
+    'shelves_permissions_cascade_warning' => 'Permissions on bookshelves do not automatically cascade to contained books. This is because a book can exist on multiple shelves. Permissions can however be copied down to child books using the option found below.',
     'shelves_copy_permissions_to_books' => 'Копіювати дозволи на книги',
     'shelves_copy_permissions' => 'Копіювати дозволи',
     'shelves_copy_permissions_explain' => 'Це застосовує поточні налаштування дозволів цієї книжкової полиці до всіх книг, що містяться всередині. Перш ніж активувати, переконайтесь що будь-які зміни дозволів цієї книжкової полиці були збережені.',
@@ -230,6 +234,7 @@ return [
     'pages_initial_name' => 'Нова сторінка',
     'pages_editing_draft_notification' => 'Ви наразі редагуєте чернетку, що була збережена останньою :timeDiff.',
     'pages_draft_edited_notification' => 'З того часу ця сторінка була оновлена. Рекомендуємо відмовитися від цього проекту.',
+    'pages_draft_page_changed_since_creation' => 'This page has been updated since this draft was created. It is recommended that you discard this draft or take care not to overwrite any page changes.',
     'pages_draft_edit_active' => [
         'start_a' => ':count користувачі(в) почали редагувати цю сторінку',
         'start_b' => ':userName розпочав редагування цієї сторінки',
@@ -316,5 +321,5 @@ return [
     'revision_delete_confirm' => 'Ви впевнені, що хочете видалити цю версію?',
     'revision_restore_confirm' => 'Дійсно відновити цю версію? Вміст поточної сторінки буде замінено.',
     'revision_delete_success' => 'Версія видалена',
-    'revision_cannot_delete_latest' => 'Неможливо видалити останню версію.'
+    'revision_cannot_delete_latest' => 'Неможливо видалити останню версію.',
 ];

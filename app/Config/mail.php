@@ -11,6 +11,8 @@
 return [
 
     // Mail driver to use.
+    // From Laravel 7+ this is MAIL_MAILER in laravel.
+    // Kept as MAIL_DRIVER in BookStack to prevent breaking change.
     // Options: smtp, sendmail, log, array
     'driver' => env('MAIL_DRIVER', 'smtp'),
 
@@ -23,7 +25,7 @@ return [
     // Global "From" address & name
     'from' => [
         'address' => env('MAIL_FROM', 'mail@bookstackapp.com'),
-        'name' => env('MAIL_FROM_NAME', 'BookStack')
+        'name'    => env('MAIL_FROM_NAME', 'BookStack'),
     ],
 
     // Email encryption protocol

@@ -43,6 +43,14 @@ return [
     'bookshelf_delete'                 => 'hat das Bücherregal gelöscht',
     'bookshelf_delete_notification'    => 'Das Bücherregal wurde erfolgreich gelöscht',
 
+    // Favourites
+    'favourite_add_notification' => '":name" wurde zu deinen Favoriten hinzugefügt',
+    'favourite_remove_notification' => '":name" wurde aus Ihren Favoriten entfernt',
+
+    // MFA
+    'mfa_setup_method_notification' => 'Multi-Faktor-Methode erfolgreich konfiguriert',
+    'mfa_remove_method_notification' => 'Multi-Faktor-Methode erfolgreich entfernt',
+
     // Other
     'commented_on'                => 'hat einen Kommentar hinzugefügt',
     'permissions_update'          => 'hat die Berechtigungen aktualisiert',

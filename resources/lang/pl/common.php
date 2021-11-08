@@ -20,7 +20,7 @@ return [
     'role' => 'Rola',
     'cover_image' => 'Zdjęcie z okładki',
     'cover_image_description' => 'Ten obraz powinien posiadać wymiary około 440x250px.',
-    
+
     // Actions
     'actions' => 'Akcje',
     'view' => 'Widok',
@@ -39,7 +39,12 @@ return [
     'reset' => 'Resetuj',
     'remove' => 'Usuń',
     'add' => 'Dodaj',
+    'configure' => 'Konfiguruj',
     'fullscreen' => 'Pełny ekran',
+    'favourite' => 'Ulubione',
+    'unfavourite' => 'Usuń z ulubionych',
+    'next' => 'Dalej',
+    'previous' => 'Wstecz',
 
     // Sort Options
     'sort_options' => 'Opcje sortowania',
@@ -47,7 +52,7 @@ return [
     'sort_ascending' => 'Sortuj rosnąco',
     'sort_descending' => 'Sortuj malejąco',
     'sort_name' => 'Nazwa',
-    'sort_default' => 'Default',
+    'sort_default' => 'Domyślne',
     'sort_created_at' => 'Data utworzenia',
     'sort_updated_at' => 'Data aktualizacji',
 
@@ -56,6 +61,7 @@ return [
     'no_activity' => 'Brak aktywności do wyświetlenia',
     'no_items' => 'Brak elementów do wyświetlenia',
     'back_to_top' => 'Powrót na górę',
+    'skip_to_main_content' => 'Przejdź do treści głównej',
     'toggle_details' => 'Włącz/wyłącz szczegóły',
     'toggle_thumbnails' => 'Włącz/wyłącz miniatury',
     'details' => 'Szczegóły',
@@ -65,7 +71,7 @@ return [
     'breadcrumb' => 'Ścieżka nawigacji',
 
     // Header
-    'header_menu_expand' => 'Expand Header Menu',
+    'header_menu_expand' => 'Rozwiń menu nagłówka',
     'profile_menu' => 'Menu profilu',
     'view_profile' => 'Zobacz profil',
     'edit_profile' => 'Edytuj profil',
@@ -74,9 +80,9 @@ return [
 
     // Layout tabs
     'tab_info' => 'Informacje',
-    'tab_info_label' => 'Tab: Show Secondary Information',
+    'tab_info_label' => 'Zakładka: Pokaż informacje drugorzędne',
     'tab_content' => 'Treść',
-    'tab_content_label' => 'Tab: Show Primary Content',
+    'tab_content_label' => 'Zakładka: Pokaż podstawową zawartość',
 
     // Email Content
     'email_action_help' => 'Jeśli masz problem z kliknięciem przycisku ":actionText", skopiuj i wklej poniższy adres URL w nowej karcie swojej przeglądarki:',

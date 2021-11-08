@@ -1,4 +1,6 @@
-<?php namespace Tests\Uploads;
+<?php
+
+namespace Tests\Uploads;
 
 use BookStack\Entities\Models\Page;
 use BookStack\Uploads\Image;
@@ -21,7 +23,7 @@ class DrawioTest extends TestCase
 
         $imageGet = $this->getJson("/images/drawio/base64/{$image->id}");
         $imageGet->assertJson([
-            'content' => 'iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gEcDCo5iYNs+gAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAFElEQVQI12O0jN/KgASYGFABqXwAZtoBV6Sl3hIAAAAASUVORK5CYII='
+            'content' => 'iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gEcDCo5iYNs+gAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAFElEQVQI12O0jN/KgASYGFABqXwAZtoBV6Sl3hIAAAAASUVORK5CYII=',
         ]);
     }
 
@@ -33,23 +35,23 @@ class DrawioTest extends TestCase
 
         $upload = $this->postJson('images/drawio', [
             'uploaded_to' => $page->id,
-            'image' => 'image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gEcDCo5iYNs+gAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAFElEQVQI12O0jN/KgASYGFABqXwAZtoBV6Sl3hIAAAAASUVORK5CYII='
+            'image'       => 'image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gEcDCo5iYNs+gAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAFElEQVQI12O0jN/KgASYGFABqXwAZtoBV6Sl3hIAAAAASUVORK5CYII=',
         ]);
 
         $upload->assertStatus(200);
         $upload->assertJson([
-            'type' => 'drawio',
+            'type'        => 'drawio',
             'uploaded_to' => $page->id,
-            'created_by' => $editor->id,
-            'updated_by' => $editor->id,
+            'created_by'  => $editor->id,
+            'updated_by'  => $editor->id,
         ]);
 
         $image = Image::where('type', '=', 'drawio')->first();
-        $this->assertTrue(file_exists(public_path($image->path)), 'Uploaded image not found at path: '. public_path($image->path));
+        $this->assertTrue(file_exists(public_path($image->path)), 'Uploaded image not found at path: ' . public_path($image->path));
 
         $testImageData = file_get_contents($this->getTestImageFilePath());
         $uploadedImageData = file_get_contents(public_path($image->path));
-        $this->assertTrue($testImageData === $uploadedImageData, "Uploaded image file data does not match our test image as expected");
+        $this->assertTrue($testImageData === $uploadedImageData, 'Uploaded image file data does not match our test image as expected');
     }
 
     public function test_drawio_url_can_be_configured()
@@ -59,7 +61,7 @@ class DrawioTest extends TestCase
         $editor = $this->getEditor();
 
         $resp = $this->actingAs($editor)->get($page->getUrl('/edit'));
-        $resp->assertSee('drawio-url="http://cats.com?dog=tree"');
+        $resp->assertSee('drawio-url="http://cats.com?dog=tree"', false);
     }
 
     public function test_drawio_url_can_be_disabled()
@@ -69,11 +71,10 @@ class DrawioTest extends TestCase
         $editor = $this->getEditor();
 
         $resp = $this->actingAs($editor)->get($page->getUrl('/edit'));
-        $resp->assertSee('drawio-url="https://embed.diagrams.net/?embed=1&amp;proto=json&amp;spin=1"');
+        $resp->assertSee('drawio-url="https://embed.diagrams.net/?embed=1&amp;proto=json&amp;spin=1"', false);
 
         config()->set('services.drawio', false);
         $resp = $this->actingAs($editor)->get($page->getUrl('/edit'));
-        $resp->assertDontSee('drawio-url');
+        $resp->assertDontSee('drawio-url', false);
     }
-
 }

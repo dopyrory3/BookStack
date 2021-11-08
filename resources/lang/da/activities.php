@@ -43,6 +43,14 @@ return [
     'bookshelf_delete'                 => 'slettede bogreol',
     'bookshelf_delete_notification'    => 'Bogreolen blev opdateret',
 
+    // Favourites
+    'favourite_add_notification' => '":name" er blevet tilføjet til dine favoritter',
+    'favourite_remove_notification' => '":name" er blevet fjernet fra dine favoritter',
+
+    // MFA
+    'mfa_setup_method_notification' => 'Multi-faktor metode konfigureret',
+    'mfa_remove_method_notification' => 'Multi-faktor metode fjernet',
+
     // Other
     'commented_on'                => 'kommenterede til',
     'permissions_update'          => 'Tilladelser opdateret',

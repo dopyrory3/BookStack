@@ -15,17 +15,21 @@
         <div>
             <div class="form-group">
                 <label for="owner">{{ trans('entities.permissions_owner') }}</label>
-                @include('components.user-select', ['user' => $model->ownedBy, 'name' => 'owned_by', 'compact' => false])
+                @include('form.user-select', ['user' => $model->ownedBy, 'name' => 'owned_by', 'compact' => false])
             </div>
         </div>
     </div>
+
+    @if($model instanceof \BookStack\Entities\Models\Bookshelf)
+        <p class="text-warn">{{ trans('entities.shelves_permissions_cascade_warning') }}</p>
+    @endif
 
     <hr>
 
     <table permissions-table class="table permissions-table toggle-switch-list" style="{{ !$model->restricted ? 'display: none' : '' }}">
         <tr>
             <th>{{ trans('common.role') }}</th>
-            <th @if($model->isA('page')) colspan="3" @else colspan="4" @endif>
+            <th colspan="{{ $model->isA('page') ? '3' : '4'  }}">
                 {{ trans('common.actions') }}
                 <a href="#" permissions-table-toggle-all class="text-small ml-m text-primary">{{ trans('common.toggle_all') }}</a>
             </th>

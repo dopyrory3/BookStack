@@ -27,6 +27,8 @@ return [
     'images' => '图片',
     'my_recent_drafts' => '我最近的草稿',
     'my_recently_viewed' => '我最近看过',
+    'my_most_viewed_favourites' => '我浏览最多的收藏',
+    'my_favourites' => '我的收藏',
     'no_pages_viewed' => '您尚未查看任何页面',
     'no_pages_recently_created' => '最近没有页面被创建',
     'no_pages_recently_updated' => '最近没有页面被更新',
@@ -34,6 +36,7 @@ return [
     'export_html' => '网页文件',
     'export_pdf' => 'PDF文件',
     'export_text' => '纯文本文件',
+    'export_md' => 'Markdown 文件',
 
     // Permissions and restrictions
     'permissions' => '权限',
@@ -96,6 +99,7 @@ return [
     'shelves_permissions' => '书架权限',
     'shelves_permissions_updated' => '书架权限已更新',
     'shelves_permissions_active' => '书架权限激活',
+    'shelves_permissions_cascade_warning' => '书架上的权限不会自动应用到书架里的书。这是因为书可以在多个书架上存在。使用下面的选项可以将权限复制到书架里的书上。',
     'shelves_copy_permissions_to_books' => '将权限复制到图书',
     'shelves_copy_permissions' => '复制权限',
     'shelves_copy_permissions_explain' => '这会将此书架的当前权限设置应用于其中包含的所有图书。 在激活之前，请确保已保存对此书架权限的任何更改。',
@@ -104,7 +108,7 @@ return [
     // Books
     'book' => '图书',
     'books' => '图书',
-    'x_books' => ':count本书',
+    'x_books' => ':count 本书',
     'books_empty' => '不存在已创建的书',
     'books_popular' => '热门图书',
     'books_recent' => '最近的书',
@@ -230,6 +234,7 @@ return [
     'pages_initial_name' => '新页面',
     'pages_editing_draft_notification' => '您正在编辑在 :timeDiff 内保存的草稿.',
     'pages_draft_edited_notification' => '此后，此页面已经被更新，建议您放弃此草稿。',
+    'pages_draft_page_changed_since_creation' => '这个页面在您的草稿创建后被其他用户更新了，您目前的草稿不包含新的内容。建议您放弃此草稿，或是注意不要覆盖新的页面更改。',
     'pages_draft_edit_active' => [
         'start_a' => ':count位用户正在编辑此页面',
         'start_b' => '用户“:userName”已经开始编辑此页面',
@@ -316,5 +321,5 @@ return [
     'revision_delete_confirm' => '您确定要删除此修订版吗？',
     'revision_restore_confirm' => '您确定要恢复到此修订版吗？恢复后原有内容将会被替换。',
     'revision_delete_success' => '修订删除',
-    'revision_cannot_delete_latest' => '无法删除最新版本。'
+    'revision_cannot_delete_latest' => '无法删除最新版本。',
 ];

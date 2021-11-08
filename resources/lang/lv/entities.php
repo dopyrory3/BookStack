@@ -27,6 +27,8 @@ return [
     'images' => 'Attēli',
     'my_recent_drafts' => 'Mani melnraksti',
     'my_recently_viewed' => 'Mani nesen skatītie',
+    'my_most_viewed_favourites' => 'Mani biežāk skatītie favorīti',
+    'my_favourites' => 'Mani favorīti',
     'no_pages_viewed' => 'Neviena lapa vēl nav skatīta',
     'no_pages_recently_created' => 'Nav radīta neviena lapa',
     'no_pages_recently_updated' => 'Nav atjaunināta neviena lapa',
@@ -34,6 +36,7 @@ return [
     'export_html' => 'Pilna satura web fails',
     'export_pdf' => 'PDF fails',
     'export_text' => 'Vienkāršs teksta fails',
+    'export_md' => 'Markdown fails',
 
     // Permissions and restrictions
     'permissions' => 'Atļaujas',
@@ -96,6 +99,7 @@ return [
     'shelves_permissions' => 'Grāmatplaukta atļaujas',
     'shelves_permissions_updated' => 'Grāmatplaukta atļaujas atjauninātas',
     'shelves_permissions_active' => 'Grāmatplaukta atļaujas ir aktīvas',
+    'shelves_permissions_cascade_warning' => 'Grāmatu plauktu atļaujas netiek automātiski pārvietotas uz grāmatām. Tas ir tāpēc, ka grāmata var atrasties vairākos plauktos. Tomēr atļaujas var nokopēt uz plauktam pievienotajām grāmatām, izmantojot zemāk norādīto opciju.',
     'shelves_copy_permissions_to_books' => 'Kopēt grāmatplaukta atļaujas uz grāmatām',
     'shelves_copy_permissions' => 'Kopēt atļaujas',
     'shelves_copy_permissions_explain' => 'Šis piemēros pašreizējās grāmatplaukta piekļuves tiesības visām tajā esošajām grāmatām. Pirms ieslēgšanas pārliecinieties, ka ir saglabātas izmaiņas grāmatplaukta piekļuves tiesībām.',
@@ -219,7 +223,7 @@ return [
     'pages_revisions_numbered_changes' => 'Revīzijas #:id izmaiņas',
     'pages_revisions_changelog' => 'Izmaiņu žurnāls',
     'pages_revisions_changes' => 'Izmaiņas',
-    'pages_revisions_current' => 'Tekošā versija',
+    'pages_revisions_current' => 'Pašreizējā versija',
     'pages_revisions_preview' => 'Priekšskatījums',
     'pages_revisions_restore' => 'Atjaunot',
     'pages_revisions_none' => 'Šai lapai nav revīziju',
@@ -230,6 +234,7 @@ return [
     'pages_initial_name' => 'Jauna lapa',
     'pages_editing_draft_notification' => 'Jūs pašlaik veicat izmaiņas melnrakstā, kurš pēdējo reizi ir saglabāts :timeDiff.',
     'pages_draft_edited_notification' => 'Šī lapa ir tikusi atjaunināta. Šo melnrakstu ieteicams atmest.',
+    'pages_draft_page_changed_since_creation' => 'Šī lapa ir izmainīta kopš šī uzmetuma izveidošanas. Ieteicams šo uzmetumu dzēst, lai netiktu pazaudētas veiktās izmaiņas.',
     'pages_draft_edit_active' => [
         'start_a' => ':count lietotāji pašlaik veic izmaiņas šajā lapā',
         'start_b' => ':userName veic izmaiņas šajā lapā',
@@ -314,7 +319,7 @@ return [
 
     // Revision
     'revision_delete_confirm' => 'Vai esat pārliecināts, ka vēlaties dzēst šo revīziju?',
-    'revision_restore_confirm' => 'Vai esat pārliecināts, ka vēlaties atjaunot šo revīziju? Tekošais lapas saturs tiks aizstāts.',
+    'revision_restore_confirm' => 'Vai tiešām vēlaties atjaunot šo revīziju? Pašreizējais lapas saturs tiks aizvietots.',
     'revision_delete_success' => 'Revīzija dzēsta',
-    'revision_cannot_delete_latest' => 'Nevar dzēst tekošo revīziju.'
+    'revision_cannot_delete_latest' => 'Nevar dzēst pašreizējo revīziju.',
 ];

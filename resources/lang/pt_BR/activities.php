@@ -43,6 +43,14 @@ return [
     'bookshelf_delete'                 => 'excluiu a prateleira',
     'bookshelf_delete_notification'    => 'Prateleira excluída com sucesso',
 
+    // Favourites
+    'favourite_add_notification' => '":name" has been added to your favourites',
+    'favourite_remove_notification' => '":name" has been removed from your favourites',
+
+    // MFA
+    'mfa_setup_method_notification' => 'Multi-factor method successfully configured',
+    'mfa_remove_method_notification' => 'Multi-factor method successfully removed',
+
     // Other
     'commented_on'                => 'comentou em',
     'permissions_update'          => 'atualizou permissões',

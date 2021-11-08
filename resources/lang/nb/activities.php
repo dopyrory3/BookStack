@@ -44,6 +44,14 @@ return [
     'bookshelf_delete'                 => 'slettet bokhylle',
     'bookshelf_delete_notification'    => 'Bokhyllen ble slettet',
 
+    // Favourites
+    'favourite_add_notification' => '«:name» ble lagt til i dine favoritter',
+    'favourite_remove_notification' => '«:name» ble fjernet fra dine favoritter',
+
+    // MFA
+    'mfa_setup_method_notification' => 'Flerfaktor-metoden ble konfigurert',
+    'mfa_remove_method_notification' => 'Flerfaktor-metoden ble fjernet',
+
     // Other
     'commented_on'                => 'kommenterte på',
     'permissions_update'          => 'oppdaterte tilganger',

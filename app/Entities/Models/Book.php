@@ -1,20 +1,29 @@
-<?php namespace BookStack\Entities\Models;
+<?php
+
+namespace BookStack\Entities\Models;
 
 use BookStack\Uploads\Image;
 use Exception;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 
 /**
- * Class Book
- * @property string $description
- * @property int $image_id
- * @property Image|null $cover
+ * Class Book.
+ *
+ * @property string                                   $description
+ * @property int                                      $image_id
+ * @property Image|null                               $cover
+ * @property \Illuminate\Database\Eloquent\Collection $chapters
+ * @property \Illuminate\Database\Eloquent\Collection $pages
+ * @property \Illuminate\Database\Eloquent\Collection $directPages
  */
 class Book extends Entity implements HasCoverImage
 {
+    use HasFactory;
+
     public $searchFactor = 2;
 
     protected $fillable = ['name', 'description'];
@@ -30,8 +39,10 @@ class Book extends Entity implements HasCoverImage
 
     /**
      * Returns book cover image, if book cover not exists return default cover image.
-     * @param int $width - Width of the image
+     *
+     * @param int $width  - Width of the image
      * @param int $height - Height of the image
+     *
      * @return string
      */
     public function getBookCover($width = 440, $height = 250)
@@ -46,11 +57,12 @@ class Book extends Entity implements HasCoverImage
         } catch (Exception $err) {
             $cover = $default;
         }
+
         return $cover;
     }
 
     /**
-     * Get the cover image of the book
+     * Get the cover image of the book.
      */
     public function cover(): BelongsTo
     {
@@ -67,6 +79,7 @@ class Book extends Entity implements HasCoverImage
 
     /**
      * Get all pages within this book.
+     *
      * @return HasMany
      */
     public function pages()
@@ -76,6 +89,7 @@ class Book extends Entity implements HasCoverImage
 
     /**
      * Get the direct child pages of this book.
+     *
      * @return HasMany
      */
     public function directPages()
@@ -85,6 +99,7 @@ class Book extends Entity implements HasCoverImage
 
     /**
      * Get all chapters within this book.
+     *
      * @return HasMany
      */
     public function chapters()
@@ -94,6 +109,7 @@ class Book extends Entity implements HasCoverImage
 
     /**
      * Get the shelves this book is contained within.
+     *
      * @return BelongsToMany
      */
     public function shelves()
@@ -103,12 +119,14 @@ class Book extends Entity implements HasCoverImage
 
     /**
      * Get the direct child items within this book.
+     *
      * @return Collection
      */
     public function getDirectChildren(): Collection
     {
         $pages = $this->directPages()->visible()->get();
         $chapters = $this->chapters()->visible()->get();
+
         return $pages->concat($chapters)->sortBy('priority')->sortByDesc('draft');
     }
 }

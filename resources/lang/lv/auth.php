@@ -38,7 +38,6 @@ return [
     'registration_email_domain_invalid' => 'E-pasta domēnam nav piekļuves pie šīs aplikācijas',
     'register_success' => 'Paldies par reģistrēšanos! Tagad varat pieslēgties.',
 
-
     // Password Reset
     'reset_password' => 'Atiestatīt paroli',
     'reset_password_send_instructions' => 'Ievadiet savu e-pastu zemāk un nosūtīsim e-pastu ar paroles atiestatīšanas saiti.',
@@ -48,7 +47,6 @@ return [
     'email_reset_subject' => 'Atiestatīt :appName paroli',
     'email_reset_text' => 'Jūs saņemat šo e-pastu, jo mēs saņēmām Jūsu profila paroles atiestatīšanas pieprasījumu.',
     'email_reset_not_requested' => 'Ja Jūs nepieprasījāt paroles atiestatīšanu, tad tālākas darbības nav nepieciešamas.',
-
 
     // Email Confirmation
     'email_confirm_subject' => 'Apstiprinat savu :appName e-pastu',
@@ -73,5 +71,40 @@ return [
     'user_invite_page_welcome' => 'Sveicināti :appName!',
     'user_invite_page_text' => 'Lai pabeigtu profila izveidi un piekļūtu :appName ir jāizveido parole.',
     'user_invite_page_confirm_button' => 'Apstiprināt paroli',
-    'user_invite_success' => 'Parole iestatīta, tagad varat piekļūt :appName!'
+    'user_invite_success' => 'Parole iestatīta, tagad varat piekļūt :appName!',
+
+    // Multi-factor Authentication
+    'mfa_setup' => 'Iestati divfaktoru autentifikāciju (2FA)',
+    'mfa_setup_desc' => 'Iestati divfaktoru autentifikāciju kā papildus drošību tavam lietotāja kontam.',
+    'mfa_setup_configured' => 'Divfaktoru autentifikācija jau ir nokonfigurēta',
+    'mfa_setup_reconfigure' => 'Mainīt 2FA konfigurāciju',
+    'mfa_setup_remove_confirmation' => 'Vai esi drošs, ka vēlies noņemt divfaktoru autentifikāciju?',
+    'mfa_setup_action' => 'Iestatījumi',
+    'mfa_backup_codes_usage_limit_warning' => 'Jums atlikuši mazāk kā 5 rezerves kodi. Lūdzu izveidojiet jaunu kodu komplektu pirms tie visi izlietoti, lai izvairītos no izslēgšanas no jūsu konta.',
+    'mfa_option_totp_title' => 'Mobilā aplikācija',
+    'mfa_option_totp_desc' => 'Lai lietotu vairākfaktoru autentifikāciju, jums būs nepieciešama mobilā aplikācija, kas atbalsta TOTP, piemēram, Google Authenticator, Authy vai Microsoft Authenticator.',
+    'mfa_option_backup_codes_title' => 'Rezerves kodi',
+    'mfa_option_backup_codes_desc' => 'Droši noglabājiet vienreizlietojamu rezerves kodu komplektu, ko varēsiet izmantot, lai verificētu savu identitāti.',
+    'mfa_gen_confirm_and_enable' => 'Apstiprināt un ieslēgt',
+    'mfa_gen_backup_codes_title' => 'Rezerves kodu iestatījumi',
+    'mfa_gen_backup_codes_desc' => 'Noglabājiet zemāk esošo kodu sarakstu drošā vietā. Kad piekļūsiet sistēmai, jūs varēsiet izmantot vienu no kodiem kā papildus autentifikācijas mehānismu.',
+    'mfa_gen_backup_codes_download' => 'Lejupielādēt kodus',
+    'mfa_gen_backup_codes_usage_warning' => 'Katru kodu var izmantot tikai vienreiz',
+    'mfa_gen_totp_title' => 'Mobilās aplikācijas iestatījumi',
+    'mfa_gen_totp_desc' => 'Lai lietotu vairākfaktoru autentifikāciju, jums būs nepieciešama mobilā aplikācija, kas atbalsta TOTP, piemēram, Google Authenticator, Authy vai Microsoft Authenticator.',
+    'mfa_gen_totp_scan' => 'Skenējiet zemāk esošo kvadrātkodu (QR) izmantojot savu autentifikācijas aplikāciju.',
+    'mfa_gen_totp_verify_setup' => 'Verificēt iestatījumus',
+    'mfa_gen_totp_verify_setup_desc' => 'Pārbaudiet, ka viss darbojas, zemāk esošajā laukā ievadot kodu, ko izveidojusi jūsu autentifikācijas aplikācijā:',
+    'mfa_gen_totp_provide_code_here' => 'Norādīet jūsu aplikācijā izveidoto kodu šeit',
+    'mfa_verify_access' => 'Verificēt piekļuvi',
+    'mfa_verify_access_desc' => 'Jūsu lietotāja kontam nepieciešams verificēt jūsu identitāti ar papildus pārbaudes līmeni pirms piešķirta piekļuve. Verificējiet, izmantojot vienu no uzstādītajām metodēm, lai turpinātu.',
+    'mfa_verify_no_methods' => 'Nav iestatīta neviena metode',
+    'mfa_verify_no_methods_desc' => 'Jūsu kontam nav iestatīta neviena vairākfaktoru autentifikācijas metode. Jums būs nepieciešams iestatīt vismaz vienu metodi, lai iegūtu piekļuvi.',
+    'mfa_verify_use_totp' => 'Verificēt, izmantojot mobilo aplikāciju',
+    'mfa_verify_use_backup_codes' => 'Verificēt, izmantojot rezerves kodu',
+    'mfa_verify_backup_code' => 'Rezerves kods',
+    'mfa_verify_backup_code_desc' => 'Zemāk ievadiet vienu no jūsu atlikušajiem rezerves kodiem:',
+    'mfa_verify_backup_code_enter_here' => 'Ievadiet rezerves kodu šeit',
+    'mfa_verify_totp_desc' => 'Zemāk ievadiet kodu, kas izveidots mobilajā aplikācijā:',
+    'mfa_setup_login_notification' => 'Vairākfaktoru metode iestatīta, lūdzu pieslēdzieties atkal izmantojot iestatīto metodi.',
 ];

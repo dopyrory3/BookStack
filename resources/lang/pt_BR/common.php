@@ -20,7 +20,7 @@ return [
     'role' => 'Cargo',
     'cover_image' => 'Imagem de capa',
     'cover_image_description' => 'Esta imagem deve ser aproximadamente 440x250px.',
-    
+
     // Actions
     'actions' => 'Ações',
     'view' => 'Visualizar',
@@ -39,7 +39,12 @@ return [
     'reset' => 'Redefinir',
     'remove' => 'Remover',
     'add' => 'Adicionar',
+    'configure' => 'Configure',
     'fullscreen' => 'Tela cheia',
+    'favourite' => 'Favoritos',
+    'unfavourite' => 'Remover dos Favoritos',
+    'next' => 'Seguinte',
+    'previous' => 'Anterior',
 
     // Sort Options
     'sort_options' => 'Opções de Ordenação',
@@ -56,6 +61,7 @@ return [
     'no_activity' => 'Nenhuma atividade a mostrar',
     'no_items' => 'Nenhum item disponível',
     'back_to_top' => 'Voltar ao topo',
+    'skip_to_main_content' => 'Ir para o conteúdo principal',
     'toggle_details' => 'Alternar Detalhes',
     'toggle_thumbnails' => 'Alternar Miniaturas',
     'details' => 'Detalhes',

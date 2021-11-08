@@ -43,6 +43,14 @@ return [
     'bookshelf_delete'                 => 'estante eliminado',
     'bookshelf_delete_notification'    => 'Estante eliminado correctamente',
 
+    // Favourites
+    'favourite_add_notification' => '".name" ha sido añadido a sus favoritos',
+    'favourite_remove_notification' => '".name" ha sido eliminado de sus favoritos',
+
+    // MFA
+    'mfa_setup_method_notification' => 'Método de Autenticación en Dos Pasos configurado correctamente',
+    'mfa_remove_method_notification' => 'Método de Autenticación en Dos Pasos eliminado correctamente',
+
     // Other
     'commented_on'                => 'comentada el',
     'permissions_update'          => 'permisos actualizados',

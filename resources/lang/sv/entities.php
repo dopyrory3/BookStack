@@ -22,11 +22,13 @@ return [
     'meta_created_name' => 'Skapad :timeLength av :user',
     'meta_updated' => 'Uppdaterad :timeLength',
     'meta_updated_name' => 'Uppdaterad :timeLength av :user',
-    'meta_owned_name' => 'Owned by :user',
+    'meta_owned_name' => 'Ägs av :user',
     'entity_select' => 'Välj enhet',
     'images' => 'Bilder',
     'my_recent_drafts' => 'Mina nyaste utkast',
     'my_recently_viewed' => 'Mina senast visade sidor',
+    'my_most_viewed_favourites' => 'Mina mest visade favoriter',
+    'my_favourites' => 'Mina favoriter',
     'no_pages_viewed' => 'Du har inte visat några sidor',
     'no_pages_recently_created' => 'Inga sidor har skapats nyligen',
     'no_pages_recently_updated' => 'Inga sidor har uppdaterats nyligen',
@@ -34,13 +36,14 @@ return [
     'export_html' => 'Webb-fil',
     'export_pdf' => 'PDF-fil',
     'export_text' => 'Textfil',
+    'export_md' => 'Markdown File',
 
     // Permissions and restrictions
     'permissions' => 'Rättigheter',
     'permissions_intro' => 'Dessa rättigheter kommer att överskrida eventuella rollbaserade rättigheter.',
     'permissions_enable' => 'Aktivera anpassade rättigheter',
     'permissions_save' => 'Spara rättigheter',
-    'permissions_owner' => 'Owner',
+    'permissions_owner' => 'Ägare',
 
     // Search
     'search_results' => 'Sökresultat',
@@ -60,7 +63,7 @@ return [
     'search_permissions_set' => 'Har anpassade rättigheter',
     'search_created_by_me' => 'Skapade av mig',
     'search_updated_by_me' => 'Uppdaterade av mig',
-    'search_owned_by_me' => 'Owned by me',
+    'search_owned_by_me' => 'Ägs av mig',
     'search_date_options' => 'Datumalternativ',
     'search_updated_before' => 'Uppdaterade före',
     'search_updated_after' => 'Uppdaterade efter',
@@ -96,6 +99,7 @@ return [
     'shelves_permissions' => 'Bokhyllerättigheter',
     'shelves_permissions_updated' => 'Bokhyllerättigheterna har ändrats',
     'shelves_permissions_active' => 'Bokhyllerättigheterna är aktiva',
+    'shelves_permissions_cascade_warning' => 'Permissions on bookshelves do not automatically cascade to contained books. This is because a book can exist on multiple shelves. Permissions can however be copied down to child books using the option found below.',
     'shelves_copy_permissions_to_books' => 'Kopiera rättigheter till böcker',
     'shelves_copy_permissions' => 'Kopiera rättigheter',
     'shelves_copy_permissions_explain' => 'Detta kommer kopiera hyllans rättigheter till alla böcker på den. Se till att du har sparat alla ändringar innan du går vidare.',
@@ -211,7 +215,7 @@ return [
     'pages_revisions' => 'Sidrevisioner',
     'pages_revisions_named' => 'Sidrevisioner för :pageName',
     'pages_revision_named' => 'Sidrevision för :pageName',
-    'pages_revision_restored_from' => 'Restored from #:id; :summary',
+    'pages_revision_restored_from' => 'Återställd från #:id; :summary',
     'pages_revisions_created_by' => 'Skapad av',
     'pages_revisions_date' => 'Revisionsdatum',
     'pages_revisions_number' => '#',
@@ -230,6 +234,7 @@ return [
     'pages_initial_name' => 'Ny sida',
     'pages_editing_draft_notification' => 'Du redigerar just nu ett utkast som senast sparades :timeDiff.',
     'pages_draft_edited_notification' => 'Denna sida har uppdaterats sen dess. Vi rekommenderar att du förkastar dina ändringar.',
+    'pages_draft_page_changed_since_creation' => 'This page has been updated since this draft was created. It is recommended that you discard this draft or take care not to overwrite any page changes.',
     'pages_draft_edit_active' => [
         'start_a' => ':count har börjat redigera den här sidan',
         'start_b' => ':userName har börjat redigera den här sidan',
@@ -316,5 +321,5 @@ return [
     'revision_delete_confirm' => 'Är du säker på att du vill radera den här versionen?',
     'revision_restore_confirm' => 'Är du säker på att du vill använda denna revision? Det nuvarande innehållet kommer att ersättas.',
     'revision_delete_success' => 'Revisionen raderad',
-    'revision_cannot_delete_latest' => 'Det går inte att ta bort den senaste versionen.'
+    'revision_cannot_delete_latest' => 'Det går inte att ta bort den senaste versionen.',
 ];

@@ -25,33 +25,45 @@ return [
     // file storage service, such as s3, to store publicly accessible assets.
     'url' => env('STORAGE_URL', false),
 
-    // Default Cloud Filesystem Disk
-    'cloud' => 's3',
-
     // Available filesystem disks
     // Only local, local_secure & s3 are supported by BookStack
     'disks' => [
 
         'local' => [
-            'driver' => 'local',
-            'root' => public_path(),
+            'driver'     => 'local',
+            'root'       => public_path(),
+            'visibility' => 'public',
         ],
 
-        'local_secure' => [
+        'local_secure_attachments' => [
             'driver' => 'local',
-            'root'   => storage_path(),
+            'root'   => storage_path('uploads/files/'),
+        ],
+
+        'local_secure_images' => [
+            'driver'     => 'local',
+            'root'       => storage_path('uploads/images/'),
+            'visibility' => 'public',
         ],
 
         's3' => [
-            'driver' => 's3',
-            'key'    => env('STORAGE_S3_KEY', 'your-key'),
-            'secret' => env('STORAGE_S3_SECRET', 'your-secret'),
-            'region' => env('STORAGE_S3_REGION', 'your-region'),
-            'bucket' => env('STORAGE_S3_BUCKET', 'your-bucket'),
-            'endpoint' => env('STORAGE_S3_ENDPOINT', null),
+            'driver'                  => 's3',
+            'key'                     => env('STORAGE_S3_KEY', 'your-key'),
+            'secret'                  => env('STORAGE_S3_SECRET', 'your-secret'),
+            'region'                  => env('STORAGE_S3_REGION', 'your-region'),
+            'bucket'                  => env('STORAGE_S3_BUCKET', 'your-bucket'),
+            'endpoint'                => env('STORAGE_S3_ENDPOINT', null),
             'use_path_style_endpoint' => env('STORAGE_S3_ENDPOINT', null) !== null,
         ],
 
+    ],
+
+    // Symbolic Links
+    // Here you may configure the symbolic links that will be created when the
+    // `storage:link` Artisan command is executed. The array keys should be
+    // the locations of the links and the values should be their targets.
+    'links' => [
+        public_path('storage') => storage_path('app/public'),
     ],
 
 ];

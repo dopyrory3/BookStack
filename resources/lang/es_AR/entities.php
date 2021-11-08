@@ -27,6 +27,8 @@ return [
     'images' => 'Imágenes',
     'my_recent_drafts' => 'Mis borradores recientes',
     'my_recently_viewed' => 'Mis visualizaciones recientes',
+    'my_most_viewed_favourites' => 'Mis Favoritos Más Vistos',
+    'my_favourites' => 'Mis Favoritos',
     'no_pages_viewed' => 'Ud. no ha visto ninguna página',
     'no_pages_recently_created' => 'Ninguna página ha sido creada recientemente',
     'no_pages_recently_updated' => 'Ninguna página ha sido actualizada recientemente',
@@ -34,6 +36,7 @@ return [
     'export_html' => 'Archivo web contenido',
     'export_pdf' => 'Archivo PDF',
     'export_text' => 'Archivo de texto plano',
+    'export_md' => 'Archivo Markdown',
 
     // Permissions and restrictions
     'permissions' => 'Permisos',
@@ -96,6 +99,7 @@ return [
     'shelves_permissions' => 'Permisos del Estante',
     'shelves_permissions_updated' => 'Permisos del Estante actualizados',
     'shelves_permissions_active' => 'Permisos Activos del Estante',
+    'shelves_permissions_cascade_warning' => 'Los permisos en los estantes no se aplican automáticamente a los libros contenidos. Esto se debe a que un libro puede existir en múltiples estantes. Sin embargo, los permisos pueden ser aplicados a los libros del estante utilizando la opción a continuación.',
     'shelves_copy_permissions_to_books' => 'Copiar Permisos a los Libros',
     'shelves_copy_permissions' => 'Copiar Permisos',
     'shelves_copy_permissions_explain' => 'Esta acción aplicará los permisos de este estante a todos los libros contenidos en él. Antes de activarlos, asegúrese que los cambios a los permisos de este estante estén guardados.',
@@ -230,6 +234,7 @@ return [
     'pages_initial_name' => 'Página nueva',
     'pages_editing_draft_notification' => 'Usted está actualmente editando un borrador que fue guardado por última vez el :timeDiff.',
     'pages_draft_edited_notification' => 'Esta página ha sido actualizada desde aquel momento. Se recomienda que cancele este borrador.',
+    'pages_draft_page_changed_since_creation' => 'Esta página fue actualizada desde que se creó este borrador. Se recomienda descartar este borrador o tener cuidado de no sobrescribir ningún cambio en la página.',
     'pages_draft_edit_active' => [
         'start_a' => ':count usuarios han comenzado a editar esta página',
         'start_b' => ':userName ha comenzado a editar esta página',
@@ -281,7 +286,7 @@ return [
     'attachments_link_attached' => 'Enlace agregado exitosamente a la página',
     'templates' => 'Plantillas',
     'templates_set_as_template' => 'La Página es una plantilla',
-    'templates_explain_set_as_template' => 'Puede establecer esta página como plantilla para que el contenido pueda utilizarse para al crear otras páginas. Otris usuarios podrán utilizar esta plantilla si tienen permisos para ver de esta página.',
+    'templates_explain_set_as_template' => 'Puede establecer esta página como plantilla para que el contenido pueda utilizarse al crear otras páginas. Otros usuarios podrán utilizar esta plantilla si tienen permisos para ver de esta página.',
     'templates_replace_content' => 'Reemplazar el contenido de la página',
     'templates_append_content' => 'Incorporar al fina del contenido de la página',
     'templates_prepend_content' => 'Incorporar al principio del contenido de la página',
@@ -316,5 +321,5 @@ return [
     'revision_delete_confirm' => '¿Está seguro de que quiere eliminar esta revisión?',
     'revision_restore_confirm' => '¿Está seguro de que quiere restaurar esta revisión? Se reemplazará el contenido de la página actual.',
     'revision_delete_success' => 'Revisión eliminada',
-    'revision_cannot_delete_latest' => 'No se puede eliminar la última revisión.'
+    'revision_cannot_delete_latest' => 'No se puede eliminar la última revisión.',
 ];

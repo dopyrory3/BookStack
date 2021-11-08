@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Cache\ArrayStore;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Tests\TestCase;
 
@@ -10,12 +10,12 @@ class StatusTest extends TestCase
 {
     public function test_returns_json_with_expected_results()
     {
-        $resp = $this->get("/status");
+        $resp = $this->get('/status');
         $resp->assertStatus(200);
         $resp->assertJson([
             'database' => true,
-            'cache' => true,
-            'session' => true,
+            'cache'    => true,
+            'session'  => true,
         ]);
     }
 
@@ -23,7 +23,7 @@ class StatusTest extends TestCase
     {
         DB::shouldReceive('table')->andThrow(new Exception());
 
-        $resp = $this->get("/status");
+        $resp = $this->get('/status');
         $resp->assertStatus(500);
         $resp->assertJson([
             'database' => false,
@@ -34,9 +34,9 @@ class StatusTest extends TestCase
     {
         $mockStore = Mockery::mock(new ArrayStore())->makePartial();
         Cache::swap($mockStore);
-        $mockStore->shouldReceive('get')->andReturn('cat');
+        $mockStore->shouldReceive('pull')->andReturn('cat');
 
-        $resp = $this->get("/status");
+        $resp = $this->get('/status');
         $resp->assertStatus(500);
         $resp->assertJson([
             'cache' => false,
@@ -50,7 +50,7 @@ class StatusTest extends TestCase
         Session::swap($mockSession);
         $mockSession->shouldReceive('get')->andReturn('cat');
 
-        $resp = $this->get("/status");
+        $resp = $this->get('/status');
         $resp->assertStatus(500);
         $resp->assertJson([
             'session' => false,

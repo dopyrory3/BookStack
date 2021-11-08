@@ -20,7 +20,7 @@ return [
     'role' => 'Rol',
     'cover_image' => 'Imagen de portada',
     'cover_image_description' => 'Esta imagen debe ser aproximadamente de 440x250px.',
-    
+
     // Actions
     'actions' => 'Acciones',
     'view' => 'Ver',
@@ -39,7 +39,12 @@ return [
     'reset' => 'Resetear',
     'remove' => 'Remover',
     'add' => 'Añadir',
+    'configure' => 'Configurar',
     'fullscreen' => 'Pantalla completa',
+    'favourite' => 'Añadir a favoritos',
+    'unfavourite' => 'Eliminar de favoritos',
+    'next' => 'Siguiente',
+    'previous' => 'Anterior',
 
     // Sort Options
     'sort_options' => 'Opciones de ordenación',
@@ -56,6 +61,7 @@ return [
     'no_activity' => 'Ninguna actividad para mostrar',
     'no_items' => 'No hay elementos disponibles',
     'back_to_top' => 'Volver arriba',
+    'skip_to_main_content' => 'Ir al contenido principal',
     'toggle_details' => 'Alternar detalles',
     'toggle_thumbnails' => 'Alternar miniaturas',
     'details' => 'Detalles',

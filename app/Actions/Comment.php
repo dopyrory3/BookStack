@@ -1,24 +1,29 @@
-<?php namespace BookStack\Actions;
+<?php
+
+namespace BookStack\Actions;
 
 use BookStack\Model;
 use BookStack\Traits\HasCreatorAndUpdater;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
- * @property string text
- * @property string html
- * @property int|null parent_id
- * @property int local_id
+ * @property int      $id
+ * @property string   $text
+ * @property string   $html
+ * @property int|null $parent_id
+ * @property int      $local_id
  */
 class Comment extends Model
 {
+    use HasFactory;
     use HasCreatorAndUpdater;
 
     protected $fillable = ['text', 'parent_id'];
     protected $appends = ['created', 'updated'];
 
     /**
-     * Get the entity that this comment belongs to
+     * Get the entity that this comment belongs to.
      */
     public function entity(): MorphTo
     {
@@ -35,6 +40,7 @@ class Comment extends Model
 
     /**
      * Get created date as a relative diff.
+     *
      * @return mixed
      */
     public function getCreatedAttribute()
@@ -44,6 +50,7 @@ class Comment extends Model
 
     /**
      * Get updated date as a relative diff.
+     *
      * @return mixed
      */
     public function getUpdatedAttribute()

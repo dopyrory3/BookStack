@@ -23,6 +23,10 @@ return [
     'saml_no_email_address' => 'Impossibile trovare un indirizzo email per questo utente nei dati forniti dal sistema di autenticazione esterno',
     'saml_invalid_response_id' => 'La richiesta dal sistema di autenticazione esterno non è riconosciuta da un processo iniziato da questa applicazione. Tornare indietro dopo un login potrebbe causare questo problema.',
     'saml_fail_authed' => 'Accesso con :system non riuscito, il sistema non ha fornito l\'autorizzazione corretta',
+    'oidc_already_logged_in' => 'Hai già effettuato il login',
+    'oidc_user_not_registered' => 'L\'utente :name non è registrato e la registrazione automatica è disabilitata',
+    'oidc_no_email_address' => 'Impossibile trovare un indirizzo email, per questo utente, nei dati forniti dal sistema di autenticazione esterno',
+    'oidc_fail_authed' => 'Accesso con :system non riuscito, il sistema non ha fornito l\'autorizzazione',
     'social_no_action_defined' => 'Nessuna azione definita',
     'social_login_bad_response' => "Ricevuto error durante il login con :socialAccount : \n:error",
     'social_account_in_use' => 'Questo account :socialAccount è già utilizzato, prova a loggarti usando l\'opzione :socialAccount.',
@@ -83,20 +87,23 @@ return [
     '404_page_not_found' => 'Pagina Non Trovata',
     'sorry_page_not_found' => 'La pagina che stavi cercando non è stata trovata.',
     'sorry_page_not_found_permission_warning' => 'Se pensi che questa pagina possa esistere, potresti non avere i permessi per visualizzarla.',
+    'image_not_found' => 'Immagine non trovata',
+    'image_not_found_subtitle' => 'Spiacente, l\'immagine che stai cercando non è stata trovata.',
+    'image_not_found_details' => 'Se ti aspettavi che questa immagine esistesse, potrebbe essere stata cancellata.',
     'return_home' => 'Ritorna alla home',
     'error_occurred' => 'C\'è Stato un errore',
     'app_down' => ':appName è offline',
     'back_soon' => 'Ritornerà presto.',
 
     // API errors
-    'api_no_authorization_found' => 'No authorization token found on the request',
+    'api_no_authorization_found' => 'Nessun token di autorizzazione trovato nella richiesta',
     'api_bad_authorization_format' => 'Un token di autorizzazione è stato trovato nella richiesta, ma il formato sembra non corretto',
-    'api_user_token_not_found' => 'No matching API token was found for the provided authorization token',
-    'api_incorrect_token_secret' => 'The secret provided for the given used API token is incorrect',
+    'api_user_token_not_found' => 'Nessun token API valido è stato trovato nel token di autorizzazione fornito',
+    'api_incorrect_token_secret' => 'Il token segreto fornito per il token API utilizzato non è corretto',
     'api_user_no_api_permission' => 'Il proprietario del token API utilizzato non ha il permesso di effettuare chiamate API',
-    'api_user_token_expired' => 'The authorization token used has expired',
+    'api_user_token_expired' => 'Il token di autorizzazione utilizzato è scaduto',
 
     // Settings & Maintenance
-    'maintenance_test_email_failure' => 'Error thrown when sending a test email:',
+    'maintenance_test_email_failure' => 'Si è verificato un errore durante l\'invio di una e-mail di prova:',
 
 ];

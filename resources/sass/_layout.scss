@@ -145,6 +145,7 @@ body.flexbox {
 .flex {
   min-height: 0;
   flex: 1;
+  max-width: 100%;
   &.fit-content {
     flex-basis: auto;
     flex-grow: 0;
@@ -156,6 +157,9 @@ body.flexbox {
 }
 .justify-center {
   justify-content: center;
+}
+.justify-space-between {
+  justify-content: space-between;
 }
 .items-center {
   align-items: center;
@@ -176,6 +180,10 @@ body.flexbox {
 
 .block.inline {
   display: inline-block !important;
+}
+
+.relative {
+  position: relative;
 }
 
 .hidden {
@@ -207,6 +215,13 @@ body.flexbox {
       display: none !important;
     }
   }
+}
+
+/**
+ * Border radiuses
+ */
+.rounded {
+  border-radius: 4px;
 }
 
 /**

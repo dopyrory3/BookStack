@@ -27,6 +27,8 @@ return [
     'images' => 'Slike',
     'my_recent_drafts' => 'Moji nedavni osnutki',
     'my_recently_viewed' => 'Nedavno prikazano',
+    'my_most_viewed_favourites' => 'My Most Viewed Favourites',
+    'my_favourites' => 'My Favourites',
     'no_pages_viewed' => 'Niste si ogledali še nobene strani',
     'no_pages_recently_created' => 'Nedavno ni bila ustvarjena nobena stran',
     'no_pages_recently_updated' => 'Nedavno ni bila posodobljena nobena stran',
@@ -34,6 +36,7 @@ return [
     'export_html' => 'Vsebuje spletno datoteko',
     'export_pdf' => 'PDF datoteka (.pdf)',
     'export_text' => 'Navadna besedilna datoteka',
+    'export_md' => 'Markdown File',
 
     // Permissions and restrictions
     'permissions' => 'Dovoljenja',
@@ -96,6 +99,7 @@ return [
     'shelves_permissions' => 'Dovoljenja knjižnih polic',
     'shelves_permissions_updated' => 'Posodobljena dovoljenja knjižnih polic',
     'shelves_permissions_active' => 'Aktivna dovoljenja knjižnih polic',
+    'shelves_permissions_cascade_warning' => 'Permissions on bookshelves do not automatically cascade to contained books. This is because a book can exist on multiple shelves. Permissions can however be copied down to child books using the option found below.',
     'shelves_copy_permissions_to_books' => 'Kopiraj dovoljenja na knjige',
     'shelves_copy_permissions' => 'Dovoljenja kopiranja',
     'shelves_copy_permissions_explain' => 'To bo uveljavilo trenutne nastavitve dovoljenj na knjižni polici za vse knjige, ki jih vsebuje ta polica. Pred aktiviranjem zagotovite, da so shranjene vse spremembe dovoljenj te knjižne police.',
@@ -230,6 +234,7 @@ return [
     'pages_initial_name' => 'Nova stran',
     'pages_editing_draft_notification' => 'Trenutno urejate osnutek, ki je bil nazadnje shranjen :timeDiff.',
     'pages_draft_edited_notification' => 'Ta stran je odtlej posodobljena. Priporočamo, da zavržete ta osnutek.',
+    'pages_draft_page_changed_since_creation' => 'This page has been updated since this draft was created. It is recommended that you discard this draft or take care not to overwrite any page changes.',
     'pages_draft_edit_active' => [
         'start_a' => ':count uporabnikov je začelo urejati to stran',
         'start_b' => ':userName je začel urejati to stran',
@@ -316,5 +321,5 @@ return [
     'revision_delete_confirm' => 'Ali ste prepričani, da želite izbrisati to revizijo?',
     'revision_restore_confirm' => 'Ali ste prepričani da želite obnoviti to revizijo? Vsebina trenutne strani bo zamenjana.',
     'revision_delete_success' => 'Revizija izbrisana',
-    'revision_cannot_delete_latest' => 'Ne morem izbrisati zadnje revizije.'
+    'revision_cannot_delete_latest' => 'Ne morem izbrisati zadnje revizije.',
 ];

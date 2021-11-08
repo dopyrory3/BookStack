@@ -20,7 +20,7 @@ return [
     'role' => '角色',
     'cover_image' => '封面图片',
     'cover_image_description' => '该图像大小需要为440x250px。',
-    
+
     // Actions
     'actions' => '操作',
     'view' => '浏览',
@@ -39,7 +39,12 @@ return [
     'reset' => '重置',
     'remove' => '删除',
     'add' => '添加',
+    'configure' => '配置',
     'fullscreen' => '全屏',
+    'favourite' => '收藏',
+    'unfavourite' => '取消收藏',
+    'next' => '下一页',
+    'previous' => '上一页',
 
     // Sort Options
     'sort_options' => '排序选项',
@@ -56,6 +61,7 @@ return [
     'no_activity' => '没有活动要显示',
     'no_items' => '没有可用的项目',
     'back_to_top' => '回到顶部',
+    'skip_to_main_content' => '跳转到主要内容',
     'toggle_details' => '显示/隐藏详细信息',
     'toggle_thumbnails' => '显示/隐藏缩略图',
     'details' => '详细信息',

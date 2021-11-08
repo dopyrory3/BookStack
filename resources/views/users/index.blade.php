@@ -1,19 +1,19 @@
-@extends('simple-layout')
+@extends('layouts.simple')
 
 @section('body')
     <div class="container small">
 
         <div class="py-m">
-            @include('settings.navbar', ['selected' => 'users'])
+            @include('settings.parts.navbar', ['selected' => 'users'])
         </div>
 
         <main class="card content-wrap">
 
-            <div class="grid right-focus v-center">
+            <div class="flex-container-row wrap justify-space-between items-center">
                 <h1 class="list-heading">{{ trans('settings.users') }}</h1>
 
-                <div class="text-right">
-                    <div class="block inline mr-s">
+                <div>
+                    <div class="block inline mr-xs">
                         <form method="get" action="{{ url("/settings/users") }}">
                             @foreach(collect($listDetails)->except('search') as $name => $val)
                                 <input type="hidden" name="{{ $name }}" value="{{ $val }}">
@@ -43,7 +43,12 @@
                         <td class="text-center" style="line-height: 0;"><img class="avatar med" src="{{ $user->getAvatar(40)}}" alt="{{ $user->name }}"></td>
                         <td>
                             <a href="{{ url("/settings/users/{$user->id}") }}">
-                                {{ $user->name }} <br> <span class="text-muted">{{ $user->email }}</span>
+                                {{ $user->name }}
+                                <br>
+                                <span class="text-muted">{{ $user->email }}</span>
+                                @if($user->mfa_values_count > 0)
+                                    <span title="MFA Configured" class="text-pos">@icon('lock')</span>
+                                @endif
                             </a>
                         </td>
                         <td>

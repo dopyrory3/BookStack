@@ -15,19 +15,19 @@
     "permissions": "chown -R $USER:$USER bootstrap/cache storage public/uploads"
   },
   "devDependencies": {
-    "chokidar-cli": "^2.1.0",
-    "esbuild": "0.7.8",
+    "chokidar-cli": "^3.0",
+    "esbuild": "0.13.12",
     "livereload": "^0.9.3",
     "npm-run-all": "^4.1.5",
     "punycode": "^2.1.1",
-    "sass": "^1.32.8"
+    "sass": "^1.43.4"
   },
   "dependencies": {
     "clipboard": "^2.0.8",
-    "codemirror": "^5.60.0",
-    "dropzone": "^5.9.2",
-    "markdown-it": "^11.0.1",
+    "codemirror": "^5.63.3",
+    "dropzone": "^5.9.3",
+    "markdown-it": "^12.2.0",
     "markdown-it-task-lists": "^2.1.1",
-    "sortablejs": "^1.13.0"
+    "sortablejs": "^1.14.0"
   }
 }

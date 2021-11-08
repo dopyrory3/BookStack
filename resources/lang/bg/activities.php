@@ -43,6 +43,14 @@ return [
     'bookshelf_delete'                 => 'изтрит рафт',
     'bookshelf_delete_notification'    => 'Рафтът беше успешно изтрит',
 
+    // Favourites
+    'favourite_add_notification' => '":name" has been added to your favourites',
+    'favourite_remove_notification' => '":name" has been removed from your favourites',
+
+    // MFA
+    'mfa_setup_method_notification' => 'Multi-factor method successfully configured',
+    'mfa_remove_method_notification' => 'Multi-factor method successfully removed',
+
     // Other
     'commented_on'                => 'коментирано на',
     'permissions_update'          => 'updated permissions',

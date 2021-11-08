@@ -38,7 +38,6 @@ return [
     'registration_email_domain_invalid' => '這個電子郵件網域沒有權限使用',
     'register_success' => '感謝您註冊！您已註冊完成並可登入。',
 
-
     // Password Reset
     'reset_password' => '重設密碼',
     'reset_password_send_instructions' => '在下方輸入您的電子郵件，您將收到一封帶有密碼重設連結的郵件。',
@@ -48,7 +47,6 @@ return [
     'email_reset_subject' => '重設您的 :appName 密碼',
     'email_reset_text' => '您收到此電子郵件是因為我們收到了您的帳號的密碼重設請求。',
     'email_reset_not_requested' => '如果您沒有要求重設密碼，則不需要採取進一步的操作。',
-
 
     // Email Confirmation
     'email_confirm_subject' => '確認您在 :appName 的電子郵件',
@@ -73,5 +71,40 @@ return [
     'user_invite_page_welcome' => '歡迎使用 :appName！',
     'user_invite_page_text' => '要完成設定您的帳號並取得存取權，您必須設定密碼，此密碼將用於登入 :appName。',
     'user_invite_page_confirm_button' => '確認密碼',
-    'user_invite_success' => '密碼已設定，您現在可以存取 :appName 了！'
+    'user_invite_success' => '密碼已設定，您現在可以存取 :appName 了！',
+
+    // Multi-factor Authentication
+    'mfa_setup' => 'Setup Multi-Factor Authentication',
+    'mfa_setup_desc' => 'Setup multi-factor authentication as an extra layer of security for your user account.',
+    'mfa_setup_configured' => 'Already configured',
+    'mfa_setup_reconfigure' => 'Reconfigure',
+    'mfa_setup_remove_confirmation' => 'Are you sure you want to remove this multi-factor authentication method?',
+    'mfa_setup_action' => 'Setup',
+    'mfa_backup_codes_usage_limit_warning' => 'You have less than 5 backup codes remaining, Please generate and store a new set before you run out of codes to prevent being locked out of your account.',
+    'mfa_option_totp_title' => 'Mobile App',
+    'mfa_option_totp_desc' => 'To use multi-factor authentication you\'ll need a mobile application that supports TOTP such as Google Authenticator, Authy or Microsoft Authenticator.',
+    'mfa_option_backup_codes_title' => 'Backup Codes',
+    'mfa_option_backup_codes_desc' => 'Securely store a set of one-time-use backup codes which you can enter to verify your identity.',
+    'mfa_gen_confirm_and_enable' => 'Confirm and Enable',
+    'mfa_gen_backup_codes_title' => 'Backup Codes Setup',
+    'mfa_gen_backup_codes_desc' => 'Store the below list of codes in a safe place. When accessing the system you\'ll be able to use one of the codes as a second authentication mechanism.',
+    'mfa_gen_backup_codes_download' => 'Download Codes',
+    'mfa_gen_backup_codes_usage_warning' => 'Each code can only be used once',
+    'mfa_gen_totp_title' => 'Mobile App Setup',
+    'mfa_gen_totp_desc' => 'To use multi-factor authentication you\'ll need a mobile application that supports TOTP such as Google Authenticator, Authy or Microsoft Authenticator.',
+    'mfa_gen_totp_scan' => 'Scan the QR code below using your preferred authentication app to get started.',
+    'mfa_gen_totp_verify_setup' => 'Verify Setup',
+    'mfa_gen_totp_verify_setup_desc' => 'Verify that all is working by entering a code, generated within your authentication app, in the input box below:',
+    'mfa_gen_totp_provide_code_here' => 'Provide your app generated code here',
+    'mfa_verify_access' => 'Verify Access',
+    'mfa_verify_access_desc' => 'Your user account requires you to confirm your identity via an additional level of verification before you\'re granted access. Verify using one of your configured methods to continue.',
+    'mfa_verify_no_methods' => 'No Methods Configured',
+    'mfa_verify_no_methods_desc' => 'No multi-factor authentication methods could be found for your account. You\'ll need to set up at least one method before you gain access.',
+    'mfa_verify_use_totp' => 'Verify using a mobile app',
+    'mfa_verify_use_backup_codes' => 'Verify using a backup code',
+    'mfa_verify_backup_code' => 'Backup Code',
+    'mfa_verify_backup_code_desc' => 'Enter one of your remaining backup codes below:',
+    'mfa_verify_backup_code_enter_here' => 'Enter backup code here',
+    'mfa_verify_totp_desc' => 'Enter the code, generated using your mobile app, below:',
+    'mfa_setup_login_notification' => 'Multi-factor method configured, Please now login again using the configured method.',
 ];

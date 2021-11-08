@@ -43,6 +43,14 @@ return [
     'bookshelf_delete'                 => 'видалив книжкову полицю',
     'bookshelf_delete_notification'    => 'Книжкову полицю успішно видалено',
 
+    // Favourites
+    'favourite_add_notification' => '":ім\'я" було додане до ваших улюлених',
+    'favourite_remove_notification' => '":ім\'я" було видалено з ваших улюблених',
+
+    // MFA
+    'mfa_setup_method_notification' => 'Багатофакторний метод успішно налаштований',
+    'mfa_remove_method_notification' => 'Багатофакторний метод успішно видалений',
+
     // Other
     'commented_on'                => 'прокоментував',
     'permissions_update'          => 'оновив дозволи',

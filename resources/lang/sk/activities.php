@@ -8,7 +8,7 @@ return [
     // Pages
     'page_create'                 => 'vytvoril(a) stránku',
     'page_create_notification'    => 'Stránka úspešne vytvorená',
-    'page_update'                 => 'aktualizoval stránku',
+    'page_update'                 => 'aktualizoval(a) stránku',
     'page_update_notification'    => 'Stránka úspešne aktualizovaná',
     'page_delete'                 => 'odstránil(a) stránku',
     'page_delete_notification'    => 'Stránka úspešne odstránená',
@@ -42,6 +42,14 @@ return [
     'bookshelf_update_notification'    => 'Knižnica úspešne aktualizovaná',
     'bookshelf_delete'                 => 'odstránil(a) knižnicu',
     'bookshelf_delete_notification'    => 'Knižnica úspešne odstránená',
+
+    // Favourites
+    'favourite_add_notification' => '":name" bol pridaný medzi obľúbené',
+    'favourite_remove_notification' => '":name" bol odstránený z obľúbených',
+
+    // MFA
+    'mfa_setup_method_notification' => 'Viacúrovňový spôsob overenia úspešne nastavený',
+    'mfa_remove_method_notification' => 'Viacúrovňový spôsob overenia úspešne odstránený',
 
     // Other
     'commented_on'                => 'komentoval(a)',

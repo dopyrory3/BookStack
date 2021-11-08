@@ -43,6 +43,14 @@ return [
     'bookshelf_delete'                 => 'verwijderde boekenplank',
     'bookshelf_delete_notification'    => 'Boekenplank succesvol verwijderd',
 
+    // Favourites
+    'favourite_add_notification' => '":name" is toegevoegd aan je favorieten',
+    'favourite_remove_notification' => '":name" is verwijderd uit je favorieten',
+
+    // MFA
+    'mfa_setup_method_notification' => 'Multi-factor methode succesvol geconfigureerd',
+    'mfa_remove_method_notification' => 'Multi-factor methode succesvol verwijderd',
+
     // Other
     'commented_on'                => 'reageerde op',
     'permissions_update'          => 'wijzigde permissies',

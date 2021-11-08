@@ -38,7 +38,6 @@ return [
     'registration_email_domain_invalid' => 'E-Mail domænet har ikke adgang til denne applikation',
     'register_success' => 'Tak for din registrering. Du er nu registeret og logget ind.',
 
-
     // Password Reset
     'reset_password' => 'Nulstil adgangskode',
     'reset_password_send_instructions' => 'Indtast din E-Mail herunder og du vil blive sendt en E-Mail med et link til at nulstille din adgangskode.',
@@ -48,7 +47,6 @@ return [
     'email_reset_subject' => 'Nulstil din :appName adgangskode',
     'email_reset_text' => 'Du modtager denne E-Mail fordi vi har modtaget en anmodning om at nulstille din adgangskode.',
     'email_reset_not_requested' => 'Hvis du ikke har anmodet om at få din adgangskode nulstillet, behøver du ikke at foretage dig noget.',
-
 
     // Email Confirmation
     'email_confirm_subject' => 'Bekræft din E-Mail på :appName',
@@ -73,5 +71,40 @@ return [
     'user_invite_page_welcome' => 'Velkommen til :appName!',
     'user_invite_page_text' => 'For at færdiggøre din konto og få adgang skal du indstille en adgangskode, der bruges til at logge ind på :appName ved fremtidige besøg.',
     'user_invite_page_confirm_button' => 'Bekræft adgangskode',
-    'user_invite_success' => 'Adgangskode indstillet, du har nu adgang til :appName!'
+    'user_invite_success' => 'Adgangskode indstillet, du har nu adgang til :appName!',
+
+    // Multi-factor Authentication
+    'mfa_setup' => 'Opsætning af Multi-faktor godkendelse',
+    'mfa_setup_desc' => 'Opsæt multi-faktor godkendelse som et ekstra lag af sikkerhed for din brugerkonto.',
+    'mfa_setup_configured' => 'Allerede konfigureret',
+    'mfa_setup_reconfigure' => 'Genkonfigurer',
+    'mfa_setup_remove_confirmation' => 'Er du sikker på, at du vil fjerne denne multi-faktor godkendelsesmetode?',
+    'mfa_setup_action' => 'Opsætning',
+    'mfa_backup_codes_usage_limit_warning' => 'Du har mindre end 5 backup koder tilbage, generere og gem et nyt sæt før du løber tør for koder, for at forhindre at blive lukket ude af din konto.',
+    'mfa_option_totp_title' => 'Mobil app',
+    'mfa_option_totp_desc' => 'For at bruge multi-faktor godkendelse, skal du bruge en mobil app, der understøtter TOTP såsom Google Authenticator, Authy eller Microsoft Authenticator.',
+    'mfa_option_backup_codes_title' => 'Backup koder',
+    'mfa_option_backup_codes_desc' => 'Gem sikkert et sæt af engangs backup koder, som du kan indtaste for at bekræfte din identitet.',
+    'mfa_gen_confirm_and_enable' => 'Bekræft og aktivér',
+    'mfa_gen_backup_codes_title' => 'Backup koder opsætning',
+    'mfa_gen_backup_codes_desc' => 'Store the below list of codes in a safe place. When accessing the system you\'ll be able to use one of the codes as a second authentication mechanism.',
+    'mfa_gen_backup_codes_download' => 'Download Codes',
+    'mfa_gen_backup_codes_usage_warning' => 'Each code can only be used once',
+    'mfa_gen_totp_title' => 'Mobile App Setup',
+    'mfa_gen_totp_desc' => 'To use multi-factor authentication you\'ll need a mobile application that supports TOTP such as Google Authenticator, Authy or Microsoft Authenticator.',
+    'mfa_gen_totp_scan' => 'Scan the QR code below using your preferred authentication app to get started.',
+    'mfa_gen_totp_verify_setup' => 'Verify Setup',
+    'mfa_gen_totp_verify_setup_desc' => 'Verify that all is working by entering a code, generated within your authentication app, in the input box below:',
+    'mfa_gen_totp_provide_code_here' => 'Provide your app generated code here',
+    'mfa_verify_access' => 'Verify Access',
+    'mfa_verify_access_desc' => 'Your user account requires you to confirm your identity via an additional level of verification before you\'re granted access. Verify using one of your configured methods to continue.',
+    'mfa_verify_no_methods' => 'No Methods Configured',
+    'mfa_verify_no_methods_desc' => 'No multi-factor authentication methods could be found for your account. You\'ll need to set up at least one method before you gain access.',
+    'mfa_verify_use_totp' => 'Verify using a mobile app',
+    'mfa_verify_use_backup_codes' => 'Verify using a backup code',
+    'mfa_verify_backup_code' => 'Backup Code',
+    'mfa_verify_backup_code_desc' => 'Enter one of your remaining backup codes below:',
+    'mfa_verify_backup_code_enter_here' => 'Enter backup code here',
+    'mfa_verify_totp_desc' => 'Enter the code, generated using your mobile app, below:',
+    'mfa_setup_login_notification' => 'Multi-factor method configured, Please now login again using the configured method.',
 ];

@@ -43,6 +43,14 @@ return [
     'bookshelf_delete'                 => 'ha suprimit un prestatge',
     'bookshelf_delete_notification'    => 'Prestatge suprimit correctament',
 
+    // Favourites
+    'favourite_add_notification' => '":name" has been added to your favourites',
+    'favourite_remove_notification' => '":name" has been removed from your favourites',
+
+    // MFA
+    'mfa_setup_method_notification' => 'Multi-factor method successfully configured',
+    'mfa_remove_method_notification' => 'Multi-factor method successfully removed',
+
     // Other
     'commented_on'                => 'ha comentat a',
     'permissions_update'          => 'ha actualitzat els permisos',
